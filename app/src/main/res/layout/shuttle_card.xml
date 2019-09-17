@@ -28,7 +28,7 @@
             android:clipChildren="false"
             android:clipToPadding="false"
             card_view:cardCornerRadius="3dp"
-            card_view:cardElevation="12dp"
+            card_view:cardElevation="4dp"
             card_view:cardPreventCornerOverlap="false"
             card_view:layout_constraintBottom_toBottomOf="parent"
             card_view:layout_constraintEnd_toEndOf="parent"
@@ -36,18 +36,12 @@
             card_view:layout_constraintTop_toBottomOf="@id/tv_title">
 
             <LinearLayout
+                android:id="@+id/ll_list"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/light_gray"
                 android:layout_marginBottom="1dp"
-                android:orientation="vertical">
-
-                <include layout="@layout/shuttle_row" />
-                <include layout="@layout/shuttle_row" />
-                <include layout="@layout/shuttle_row" />
-                <include layout="@layout/shuttle_row" />
-                <include layout="@layout/shuttle_row" />
-            </LinearLayout>
+                android:orientation="vertical" />
 
         </androidx.cardview.widget.CardView>
 
