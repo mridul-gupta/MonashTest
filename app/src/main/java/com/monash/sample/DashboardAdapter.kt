@@ -5,8 +5,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.core.content.ContextCompat.getColor
 import androidx.recyclerview.widget.RecyclerView
-import com.monash.sample.pojo.*
+import com.monash.sample.pojo.CarParkings
+import com.monash.sample.pojo.Lectures
+import com.monash.sample.pojo.Shuttles
+import kotlinx.android.synthetic.main.carpark_row.view.*
 import kotlinx.android.synthetic.main.timetable_card.view.*
 
 class DashboardAdapter() : RecyclerView.Adapter<DashboardAdapter.BaseViewHolder<*>>() {
@@ -95,7 +99,7 @@ class DashboardAdapter() : RecyclerView.Adapter<DashboardAdapter.BaseViewHolder<
                 }
             } else {
                 val textView = TextView(context)
-                textView.text = "Nothing for today!"
+                textView.text = context.getString(R.string.nothing_today)
                 textView.gravity = 1
                 view.ll_list.addView(textView)
             }
@@ -111,11 +115,23 @@ class DashboardAdapter() : RecyclerView.Adapter<DashboardAdapter.BaseViewHolder<
                     val newEntry =
                         LayoutInflater.from(context)
                             .inflate(R.layout.carpark_row, view.ll_list, false)
+
+                    /* update fields */
+                    newEntry.tv_parting_name.text = item.carParkings[i].name
+                    newEntry.circle1.background.setTint(getColor(context, item.carParkings[i].color1))
+                    newEntry.circle2.background.setTint(getColor(context, item.carParkings[i].color2))
+                    newEntry.circle3.background.setTint(getColor(context, item.carParkings[i].color3))
+                    newEntry.circle4.background.setTint(getColor(context, item.carParkings[i].color4))
+                    newEntry.circle5.background.setTint(getColor(context, item.carParkings[i].color5))
+                    newEntry.circle6.background.setTint(getColor(context, item.carParkings[i].color6))
+                    newEntry.circle7.background.setTint(getColor(context, item.carParkings[i].color7))
+                    newEntry.tv_numberOfParkings.text = item.carParkings[i].count.toString()
+
                     view.ll_list.addView(newEntry)
                 }
             } else {
                 val textView = TextView(context)
-                textView.text = "Nothing for today!"
+                textView.text = context.getString(R.string.nothing_today)
                 textView.gravity = 1
                 view.ll_list.addView(textView)
             }
@@ -135,7 +151,7 @@ class DashboardAdapter() : RecyclerView.Adapter<DashboardAdapter.BaseViewHolder<
                 }
             } else {
                 val textView = TextView(context)
-                textView.text = "Nothing for today!"
+                textView.text = context.getString(R.string.nothing_today)
                 textView.gravity = 1
                 view.ll_list.addView(textView)
             }

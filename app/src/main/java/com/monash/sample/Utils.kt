@@ -41,7 +41,7 @@ fun getData(): UserData {
                 645
             ),
             CarParking(
-                "Clayton live feed",
+                "Burwood live feed",
                 R.color.purple,
                 R.color.green,
                 R.color.orange,
@@ -49,10 +49,10 @@ fun getData(): UserData {
                 R.color.blue,
                 R.color.yellow,
                 R.color.red,
-                645
+                265
             ),
             CarParking(
-                "Clayton live feed",
+                "Hawthorn live feed",
                 R.color.red,
                 R.color.purple,
                 R.color.green,
@@ -60,7 +60,7 @@ fun getData(): UserData {
                 R.color.pink,
                 R.color.blue,
                 R.color.orange,
-                645
+                37
             )
         )),
         Shuttles(listOf(

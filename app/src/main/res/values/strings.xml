@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">MonashCodingChallenge</string>
+    <string name="nothing_today">Nothing for today!</string>
 </resources>
