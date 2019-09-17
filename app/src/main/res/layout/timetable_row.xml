@@ -6,9 +6,9 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/white"
         android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp">
+        android:layout_marginEnd="16dp"
+        android:background="@color/white">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/cl_time"
@@ -22,15 +22,17 @@
                 android:id="@+id/tv_startTimeValue"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:text="08:00"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:text="8:00" />
+                tools:text="08:00" />
 
             <TextView
                 android:id="@+id/tv_startTimeAMPM"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
+                android:text="AM"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="AM" />
@@ -39,6 +41,7 @@
                 android:id="@+id/tv_endTimeValue"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:text="12:00"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tv_startTimeValue"
                 tools:text="12:00" />
@@ -48,6 +51,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
+                android:text="PM"
                 app:layout_constraintStart_toEndOf="@id/tv_endTimeValue"
                 app:layout_constraintTop_toBottomOf="@id/tv_startTimeAMPM"
                 tools:text="PM" />
@@ -58,8 +62,10 @@
             android:id="@+id/vertical_bar"
             android:layout_width="2dp"
             android:layout_height="0dp"
-            android:background="#3F51B5"
             android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:background="@color/blue"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@id/cl_time"
             app:layout_constraintTop_toTopOf="parent" />
@@ -67,8 +73,8 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:background="@color/white"
             android:layout_marginStart="16dp"
+            android:background="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/vertical_bar"
@@ -78,8 +84,9 @@
                 android:id="@+id/tv_class"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:text="FIT1031 Lecture 01"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toTopOf="@+id/tv_prof"
+                app:layout_constraintBottom_toTopOf="@+id/tv_arrivingIn"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
@@ -87,9 +94,10 @@
                 tools:text="FIT1031 Lecture 01" />
 
             <TextView
-                android:id="@+id/tv_prof"
+                android:id="@+id/tv_arrivingIn"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:text="Jarrod Knibbe"
                 app:layout_constraintBottom_toTopOf="@+id/tv_location"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
@@ -101,11 +109,12 @@
                 android:id="@+id/tv_location"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:text="JS4, 13 College Walk, Clayton"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_prof"
+                app:layout_constraintTop_toBottomOf="@+id/tv_arrivingIn"
                 tools:text="S4, 13 College Walk, Clayton" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
