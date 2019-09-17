@@ -12,6 +12,7 @@ import com.monash.sample.pojo.Lectures
 import com.monash.sample.pojo.Shuttles
 import kotlinx.android.synthetic.main.carpark_row.view.*
 import kotlinx.android.synthetic.main.timetable_card.view.*
+import kotlinx.android.synthetic.main.timetable_row.view.*
 
 class DashboardAdapter() : RecyclerView.Adapter<DashboardAdapter.BaseViewHolder<*>>() {
     private val data: MutableList<Comparable<*>>
@@ -95,6 +96,16 @@ class DashboardAdapter() : RecyclerView.Adapter<DashboardAdapter.BaseViewHolder<
                     val newEntry =
                         LayoutInflater.from(context)
                             .inflate(R.layout.timetable_row, view.ll_list, false)
+
+                    /* update fields */
+                    newEntry.tv_startTimeValue.text = item.lectures[i].startTime
+                    //newEntry.tv_startTimeAMPM.text = item.lectures[i]. //ToDo:figure out ampm
+                    newEntry.tv_endTimeValue.text = item.lectures[i].endTime
+                    //newEntry.tv_endTimeAMPM.text = item.lectures[i]. //ToDo:figure out ampm
+                    newEntry.tv_class.text = item.lectures[i].name
+                    newEntry.tv_professor.text = item.lectures[i].professor
+                    newEntry.tv_location.text = item.lectures[i].location
+
                     view.ll_list.addView(newEntry)
                 }
             } else {

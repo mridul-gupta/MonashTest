@@ -14,18 +14,18 @@ fun getData(): UserData {
                 "S4, 13 College Walk, Clayton"
             ),
             Lecture(
-                "08:00",
-                "10:00",
-                "FIT1031 Lecture 01",
-                "Arun Kongaurthu",
-                "S4, 13 College Walk, Clayton"
+                "01:00",
+                "03:00",
+                "FIT1075 Tutorial 11",
+                "Jorrod Knibbe",
+                "S3, 13 College Walk, Clayton"
             ),
             Lecture(
-                "08:00",
-                "10:00",
-                "FIT1031 Lecture 01",
-                "Arun Kongaurthu",
-                "S4, 13 College Walk, Clayton"
+                "03:00",
+                "05:00",
+                "FIT1078 Laboratory 08",
+                "Akshay Sapra",
+                "144, 13 College Walk, Clayton"
             )
         )),
         CarParkings(listOf(
