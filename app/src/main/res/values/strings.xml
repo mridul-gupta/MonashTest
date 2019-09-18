@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">MonashCodingChallenge</string>
     <string name="nothing_today">Nothing for today!</string>
+    <string name="hey_user">Hey, %1$s</string>
+    <string name="date_day">%1$s %2$s, Week %3$d</string>
+    <string name="minutes_format">%1$s mins</string>
 </resources>

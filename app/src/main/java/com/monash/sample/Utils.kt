@@ -65,8 +65,8 @@ fun getData(): UserData {
         )),
         Shuttles(listOf(
             Shuttle("Clayton", "Caufield", 4),
-            Shuttle("Clayton", "Caufield", 4),
-            Shuttle("Clayton", "Caufield", 4)
+            Shuttle("Clayton", "Peninsula", 8),
+            Shuttle("Clayton", "Hawthorn", 10)
         ))
     )
 }

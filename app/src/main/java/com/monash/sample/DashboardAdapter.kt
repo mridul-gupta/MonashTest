@@ -11,6 +11,7 @@ import com.monash.sample.pojo.CarParkings
 import com.monash.sample.pojo.Lectures
 import com.monash.sample.pojo.Shuttles
 import kotlinx.android.synthetic.main.carpark_row.view.*
+import kotlinx.android.synthetic.main.shuttle_row.view.*
 import kotlinx.android.synthetic.main.timetable_card.view.*
 import kotlinx.android.synthetic.main.timetable_row.view.*
 
@@ -107,6 +108,14 @@ class DashboardAdapter() : RecyclerView.Adapter<DashboardAdapter.BaseViewHolder<
                     newEntry.tv_location.text = item.lectures[i].location
 
                     view.ll_list.addView(newEntry)
+
+                    /* add separator */
+                    if (i < item.lectures.size - 1) {
+                        view.ll_list.addView(
+                            LayoutInflater.from(context)
+                                .inflate(R.layout.horizontal_separator, view.ll_list, false)
+                        )
+                    }
                 }
             } else {
                 val textView = TextView(context)
@@ -129,16 +138,59 @@ class DashboardAdapter() : RecyclerView.Adapter<DashboardAdapter.BaseViewHolder<
 
                     /* update fields */
                     newEntry.tv_parting_name.text = item.carParkings[i].name
-                    newEntry.circle1.background.setTint(getColor(context, item.carParkings[i].color1))
-                    newEntry.circle2.background.setTint(getColor(context, item.carParkings[i].color2))
-                    newEntry.circle3.background.setTint(getColor(context, item.carParkings[i].color3))
-                    newEntry.circle4.background.setTint(getColor(context, item.carParkings[i].color4))
-                    newEntry.circle5.background.setTint(getColor(context, item.carParkings[i].color5))
-                    newEntry.circle6.background.setTint(getColor(context, item.carParkings[i].color6))
-                    newEntry.circle7.background.setTint(getColor(context, item.carParkings[i].color7))
+                    newEntry.circle1.background.setTint(
+                        getColor(
+                            context,
+                            item.carParkings[i].color1
+                        )
+                    )
+                    newEntry.circle2.background.setTint(
+                        getColor(
+                            context,
+                            item.carParkings[i].color2
+                        )
+                    )
+                    newEntry.circle3.background.setTint(
+                        getColor(
+                            context,
+                            item.carParkings[i].color3
+                        )
+                    )
+                    newEntry.circle4.background.setTint(
+                        getColor(
+                            context,
+                            item.carParkings[i].color4
+                        )
+                    )
+                    newEntry.circle5.background.setTint(
+                        getColor(
+                            context,
+                            item.carParkings[i].color5
+                        )
+                    )
+                    newEntry.circle6.background.setTint(
+                        getColor(
+                            context,
+                            item.carParkings[i].color6
+                        )
+                    )
+                    newEntry.circle7.background.setTint(
+                        getColor(
+                            context,
+                            item.carParkings[i].color7
+                        )
+                    )
                     newEntry.tv_numberOfParkings.text = item.carParkings[i].count.toString()
 
                     view.ll_list.addView(newEntry)
+
+                    /* add separator */
+                    if (i < item.carParkings.size - 1) {
+                        view.ll_list.addView(
+                            LayoutInflater.from(context)
+                                .inflate(R.layout.horizontal_separator, view.ll_list, false)
+                        )
+                    }
                 }
             } else {
                 val textView = TextView(context)
@@ -158,7 +210,24 @@ class DashboardAdapter() : RecyclerView.Adapter<DashboardAdapter.BaseViewHolder<
                     val newEntry =
                         LayoutInflater.from(context)
                             .inflate(R.layout.shuttle_row, view.ll_list, false)
+
+                    /* update fields */
+                    newEntry.tv_fromStop.text = item.shuttles[i].fromStation
+                    newEntry.tv_toStop.text = item.shuttles[i].toStation
+                    newEntry.tv_arrivingIn.text = String.format(
+                        context.resources.getString(R.string.minutes_format),
+                        item.shuttles[i].minutes
+                    )
+
                     view.ll_list.addView(newEntry)
+
+                    /* add separator */
+                    if (i < item.shuttles.size - 1) {
+                        view.ll_list.addView(
+                            LayoutInflater.from(context)
+                                .inflate(R.layout.horizontal_separator, view.ll_list, false)
+                        )
+                    }
                 }
             } else {
                 val textView = TextView(context)
