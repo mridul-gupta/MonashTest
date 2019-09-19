@@ -2,6 +2,16 @@ package com.monash.sample
 
 import com.monash.sample.pojo.*
 
+
+const val BASE_URL = "https://us-central1-monashtest-cf1d4.cloudfunctions.net/"
+
+enum class Status {
+    IDLE,
+    LOADING,
+    SUCCESS,
+    ERROR
+}
+
 fun getData(): UserData {
     return UserData(
         "PK", "Heng", 8,
