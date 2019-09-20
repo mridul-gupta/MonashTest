@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
 import androidx.core.content.ContextCompat.getColor
 import androidx.recyclerview.widget.RecyclerView
 import com.monash.sample.pojo.CarParkings
@@ -92,6 +93,15 @@ class DashboardAdapter() : RecyclerView.Adapter<DashboardAdapter.BaseViewHolder<
         BaseViewHolder<Lectures>(view) {
         override fun bind(item: Lectures) {
             view.ll_list.removeAllViews()
+
+            view.v_three_dots.setOnClickListener {
+                Toast.makeText(
+                    context,
+                    "Coming soon. Try the refresh button on top.",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+
             if (item.lectures.isNotEmpty()) {
                 for (i in 0 until item.lectures.size) {
                     val newEntry =
