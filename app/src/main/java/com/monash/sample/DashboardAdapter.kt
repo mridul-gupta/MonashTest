@@ -16,9 +16,9 @@ import kotlinx.android.synthetic.main.shuttle_row.view.*
 import kotlinx.android.synthetic.main.timetable_card.view.*
 import kotlinx.android.synthetic.main.timetable_row.view.*
 
-class DashboardAdapter() : RecyclerView.Adapter<DashboardAdapter.BaseViewHolder<*>>() {
+class DashboardAdapter : RecyclerView.Adapter<DashboardAdapter.BaseViewHolder<*>>() {
     private val data: MutableList<Comparable<*>>
-    lateinit var context: Context
+    private lateinit var context: Context
 
     companion object {
         const val TYPE_TIMETABLE = 0
@@ -36,17 +36,17 @@ class DashboardAdapter() : RecyclerView.Adapter<DashboardAdapter.BaseViewHolder<
             TYPE_TIMETABLE -> {
                 val view =
                     LayoutInflater.from(context).inflate(R.layout.timetable_card, parent, false)
-                TimetableViewHolder(view, context, data)
+                TimetableViewHolder(view, context)
             }
             TYPE_CAR_PARK -> {
                 val view = LayoutInflater.from(parent.context)
                     .inflate(R.layout.carpark_card, parent, false)
-                CarparkViewHolder(view, context, data)
+                CarparkViewHolder(view, context)
             }
             TYPE_SHUTTLE -> {
                 val view = LayoutInflater.from(parent.context)
                     .inflate(R.layout.shuttle_card, parent, false)
-                ShuttleViewHolder(view, context, data)
+                ShuttleViewHolder(view, context)
             }
             else -> throw IllegalArgumentException("Invalid view type")
         }
@@ -63,13 +63,12 @@ class DashboardAdapter() : RecyclerView.Adapter<DashboardAdapter.BaseViewHolder<
     }
 
     override fun getItemViewType(position: Int): Int {
-        val comparable = data[position]
 
-        return when (comparable) {
+        return when (data[position]) {
             is Lectures -> TYPE_TIMETABLE
             is CarParkings -> TYPE_CAR_PARK
             is Shuttles -> TYPE_SHUTTLE
-            else -> throw IllegalArgumentException("Invalid type of data " + position)
+            else -> throw IllegalArgumentException()
         }
     }
 
@@ -89,7 +88,7 @@ class DashboardAdapter() : RecyclerView.Adapter<DashboardAdapter.BaseViewHolder<
     }
 
 
-    class TimetableViewHolder(val view: View, val context: Context, val data: List<Comparable<*>>) :
+    class TimetableViewHolder(val view: View, private val context: Context) :
         BaseViewHolder<Lectures>(view) {
         override fun bind(item: Lectures) {
             view.ll_list.removeAllViews()
@@ -136,7 +135,7 @@ class DashboardAdapter() : RecyclerView.Adapter<DashboardAdapter.BaseViewHolder<
         }
     }
 
-    class CarparkViewHolder(val view: View, val context: Context, val data: List<Comparable<*>>) :
+    class CarparkViewHolder(val view: View, private val context: Context) :
         BaseViewHolder<CarParkings>(view) {
         override fun bind(item: CarParkings) {
             view.ll_list.removeAllViews()
@@ -177,7 +176,7 @@ class DashboardAdapter() : RecyclerView.Adapter<DashboardAdapter.BaseViewHolder<
         }
     }
 
-    class ShuttleViewHolder(val view: View, val context: Context, val data: List<Comparable<*>>) :
+    class ShuttleViewHolder(val view: View, private val context: Context) :
         BaseViewHolder<Shuttles>(view) {
         override fun bind(item: Shuttles) {
             view.ll_list.removeAllViews()

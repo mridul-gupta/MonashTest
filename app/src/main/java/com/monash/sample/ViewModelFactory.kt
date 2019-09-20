@@ -1,7 +1,6 @@
 package com.monash.sample
 
 
-import android.app.Application
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 
@@ -10,7 +9,7 @@ class ViewModelFactory private constructor() :
 
 
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        if (modelClass.isAssignableFrom(DashboardViewModel::class.java!!)) {
+        if (modelClass.isAssignableFrom(DashboardViewModel::class.java)) {
             return DashboardViewModel() as T
         }
         throw IllegalArgumentException("Unknown class name")
@@ -20,7 +19,7 @@ class ViewModelFactory private constructor() :
         @Volatile
         private var INSTANCE: ViewModelFactory? = null
 
-        fun getInstance(application: Application): ViewModelFactory? {
+        fun getInstance(): ViewModelFactory? {
 
             if (INSTANCE == null) {
                 synchronized(ViewModelFactory::class.java) {

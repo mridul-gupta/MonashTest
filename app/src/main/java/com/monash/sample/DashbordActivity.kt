@@ -51,11 +51,11 @@ class DashbordActivity : AppCompatActivity() {
     }
 
     private fun initViewModels(activity: AppCompatActivity) {
-        val factory = ViewModelFactory.getInstance(activity.application)
+        val factory = ViewModelFactory.getInstance()
         mViewModel = ViewModelProviders.of(activity, factory).get(DashboardViewModel::class.java)
     }
 
-    fun updateUI() {
+    private fun updateUI() {
         dashboardAdapter.updateData(getData())
 
         /* update toolbar */
@@ -80,7 +80,7 @@ class DashbordActivity : AppCompatActivity() {
                 )
     }
 
-    fun getData(): List<Comparable<*>> {
+    private fun getData(): List<Comparable<*>> {
         val combineList: MutableList<Comparable<*>> = ArrayList()
 
         combineList.add(mViewModel.userData.lectures)
@@ -104,7 +104,7 @@ class DashbordActivity : AppCompatActivity() {
                 progressBar.visibility = View.GONE
                 toolbar.visibility = View.VISIBLE
                 rv_dashboard.visibility = View.VISIBLE
-                Toast.makeText(this, "Refreshed data from network", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Refreshed data from network", Toast.LENGTH_SHORT).show()
 
                 updateUI()
             }

@@ -4,4 +4,12 @@
     <string name="hey_user">Hey, %1$s</string>
     <string name="date_day">%1$s %2$s, Week %3$d</string>
     <string name="minutes_format">%1$s mins</string>
+    <string name="user_profile_button">User Profile button</string>
+    <string name="refresh_button">Refresh Button</string>
+    <string name="available_car_parks">Available Car Parks</string>
+    <string name="intercampus_shuttle_bus">Intercampus Shuttle Bus</string>
+    <string name="from_image">From Image</string>
+    <string name="today">Today</string>
+    <string name="string_am">AM</string>
+    <string name="string_pm">PM</string>
 </resources>

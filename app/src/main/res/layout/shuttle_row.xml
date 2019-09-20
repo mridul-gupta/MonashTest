@@ -16,7 +16,6 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:singleLine="true"
-            android:text="Clayton"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -29,7 +28,8 @@
             android:layout_marginStart="16dp"
             android:src="@mipmap/busroute"
             app:layout_constraintStart_toEndOf="@+id/tv_fromStop"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:contentDescription="@string/from_image" />
 
 
         <TextView
@@ -39,7 +39,6 @@
             android:layout_marginStart="16dp"
             android:gravity="center"
             android:singleLine="true"
-            android:text="Caufield"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/imageView"
             app:layout_constraintTop_toTopOf="parent"
@@ -53,7 +52,6 @@
             android:textStyle="bold"
             android:textColor="@color/blue"
             android:singleLine="true"
-            android:text="4 mins"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
