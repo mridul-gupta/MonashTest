@@ -11,6 +11,7 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.dashboard_activity.*
+import kotlinx.android.synthetic.main.simple_toolbar.*
 import kotlinx.android.synthetic.main.simple_toolbar.view.*
 import java.util.*
 import kotlin.collections.ArrayList
@@ -34,8 +35,17 @@ class DashbordActivity : AppCompatActivity() {
             LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
         dashboardRecyclerView.adapter = dashboardAdapter
 
-        //mViewModel.responseStatus.observe(getViewLifecycleOwner(), ???({ this.consumeResponse(it) }))
         mViewModel.responseStatus.observe(this, Observer { consumeResponse(mViewModel.responseStatus.value) })
+
+        /* button actions */
+        iv_refresh.setOnClickListener { mViewModel.getUserData() }
+        iv_profile.setOnClickListener {
+            Toast.makeText(
+                this,
+                "Coming soon. Try the button next to it.",
+                Toast.LENGTH_SHORT
+            ).show()
+        }
 
         updateUI()
     }
