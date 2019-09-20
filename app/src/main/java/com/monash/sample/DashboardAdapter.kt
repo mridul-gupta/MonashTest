@@ -138,48 +138,14 @@ class DashboardAdapter() : RecyclerView.Adapter<DashboardAdapter.BaseViewHolder<
 
                     /* update fields */
                     newEntry.tv_parting_name.text = item.carParkings[i].name
-                    newEntry.circle1.background.setTint(
-                        getColor(
-                            context,
-                            item.carParkings[i].color1
-                        )
-                    )
-                    newEntry.circle2.background.setTint(
-                        getColor(
-                            context,
-                            item.carParkings[i].color2
-                        )
-                    )
-                    newEntry.circle3.background.setTint(
-                        getColor(
-                            context,
-                            item.carParkings[i].color3
-                        )
-                    )
-                    newEntry.circle4.background.setTint(
-                        getColor(
-                            context,
-                            item.carParkings[i].color4
-                        )
-                    )
-                    newEntry.circle5.background.setTint(
-                        getColor(
-                            context,
-                            item.carParkings[i].color5
-                        )
-                    )
-                    newEntry.circle6.background.setTint(
-                        getColor(
-                            context,
-                            item.carParkings[i].color6
-                        )
-                    )
-                    newEntry.circle7.background.setTint(
-                        getColor(
-                            context,
-                            item.carParkings[i].color7
-                        )
-                    )
+                    newEntry.circle1.background.setTint(getColor(context,getRandomColor()))
+                    newEntry.circle2.background.setTint(getColor(context,getRandomColor()))
+                    newEntry.circle3.background.setTint(getColor(context,getRandomColor()))
+                    newEntry.circle4.background.setTint(getColor(context,getRandomColor()))
+                    newEntry.circle5.background.setTint(getColor(context,getRandomColor()))
+                    newEntry.circle6.background.setTint(getColor(context,getRandomColor()))
+                    newEntry.circle7.background.setTint(getColor(context,getRandomColor()))
+
                     newEntry.tv_numberOfParkings.text = item.carParkings[i].count.toString()
 
                     view.ll_list.addView(newEntry)

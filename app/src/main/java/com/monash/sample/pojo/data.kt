@@ -19,13 +19,6 @@ data class Lectures(
 
 data class CarParking(
     var name: String,
-    var color1: Int,
-    var color2: Int,
-    var color3: Int,
-    var color4: Int,
-    var color5: Int,
-    var color6: Int,
-    var color7: Int,
     var count: Int
 )
 
@@ -57,7 +50,7 @@ data class UserData(
     var lastName: String,
     var weekNum: Int,
     var lectures: Lectures,
-    var carparkings: CarParkings,
+    var carParkings: CarParkings,
     var shuttles: Shuttles
 )
 

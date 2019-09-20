@@ -2,7 +2,11 @@ package com.monash.sample
 
 import android.icu.text.SimpleDateFormat
 import android.os.Bundle
+import android.util.Log
+import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -29,6 +33,9 @@ class DashbordActivity : AppCompatActivity() {
         dashboardRecyclerView.layoutManager =
             LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
         dashboardRecyclerView.adapter = dashboardAdapter
+
+        //mViewModel.responseStatus.observe(getViewLifecycleOwner(), ???({ this.consumeResponse(it) }))
+        mViewModel.responseStatus.observe(this, Observer { consumeResponse(mViewModel.responseStatus.value) })
 
         updateUI()
     }
@@ -67,10 +74,42 @@ class DashbordActivity : AppCompatActivity() {
         val combineList: MutableList<Comparable<*>> = ArrayList()
 
         combineList.add(mViewModel.userData.lectures)
-        combineList.add(mViewModel.userData.carparkings)
+        combineList.add(mViewModel.userData.carParkings)
         combineList.add(mViewModel.userData.shuttles)
 
         return combineList
+    }
+
+    private fun consumeResponse(status: Status?) {
+
+        when (status) {
+
+            Status.LOADING -> {
+                progressBar.visibility = View.VISIBLE
+                toolbar.visibility = View.GONE
+                rv_dashboard.visibility = View.GONE
+            }
+
+            Status.SUCCESS -> {
+                progressBar.visibility = View.GONE
+                toolbar.visibility = View.VISIBLE
+                rv_dashboard.visibility = View.VISIBLE
+                Toast.makeText(this, "Refreshed data from network", Toast.LENGTH_SHORT).show();
+
+                updateUI()
+            }
+
+            Status.ERROR -> {
+                progressBar.visibility = View.GONE
+                toolbar.visibility = View.VISIBLE
+                rv_dashboard.visibility = View.VISIBLE
+                Toast.makeText(this, "Error fetching from network. Loading saved data.", Toast.LENGTH_SHORT).show()
+            }
+
+            else -> {
+                Log.e("consumeResponse", "Status not set")
+            }
+        }
     }
 }
 

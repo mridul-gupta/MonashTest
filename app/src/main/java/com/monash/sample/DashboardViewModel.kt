@@ -7,7 +7,7 @@ import com.monash.sample.pojo.UserData
 import com.monash.sample.pojo.UserRepository
 
 class DashboardViewModel : ViewModel() {
-    lateinit var userData: UserData
+    var userData: UserData
 
     internal val responseStatus = MutableLiveData(Status.IDLE)
 
@@ -16,7 +16,7 @@ class DashboardViewModel : ViewModel() {
     init {
         this.mRepository = UserRepository()
 
-        //userData = getData()
+        userData = getData() /* default data */
         getUserData()
     }
 
@@ -31,8 +31,8 @@ class DashboardViewModel : ViewModel() {
                 }
 
                 override fun onSuccess(data: UserData) {
-                    responseStatus.value = Status.SUCCESS
                     userData = data
+                    responseStatus.value = Status.SUCCESS
                 }
             })
     }

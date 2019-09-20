@@ -12,9 +12,24 @@ enum class Status {
     ERROR
 }
 
+
+fun getRandomColor(): Int {
+    val colors = intArrayOf(
+        R.color.blue,
+        R.color.purple,
+        R.color.pink,
+        R.color.red,
+        R.color.yellow,
+        R.color.green,
+        R.color.orange
+    )
+    return colors[(colors.indices).random()]
+}
+
+
 fun getData(): UserData {
     return UserData(
-        "PK", "Heng", 8,
+        "Mridul", "Gupta", 8,
         Lectures(listOf(
             Lecture(
                 "08:00",
@@ -41,35 +56,14 @@ fun getData(): UserData {
         CarParkings(listOf(
             CarParking(
                 "Clayton live feed",
-                R.color.blue,
-                R.color.purple,
-                R.color.pink,
-                R.color.red,
-                R.color.yellow,
-                R.color.green,
-                R.color.orange,
                 645
             ),
             CarParking(
                 "Burwood live feed",
-                R.color.purple,
-                R.color.green,
-                R.color.orange,
-                R.color.pink,
-                R.color.blue,
-                R.color.yellow,
-                R.color.red,
                 265
             ),
             CarParking(
                 "Hawthorn live feed",
-                R.color.red,
-                R.color.purple,
-                R.color.green,
-                R.color.yellow,
-                R.color.pink,
-                R.color.blue,
-                R.color.orange,
                 37
             )
         )),
